@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 mx-auto mt-5">
+      <div class="row">
+        <div class="col-md-4">
+          <i class="fas fa-door-open "></i> <strong>{{rooms}} :</strong> Chat Room
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4 mr-auto">
+            <i class="fas fa-user"></i> <strong>{{username}} </strong>
+        </div>
+
+      </div>
+      <div id="shows">
+        
+      </div>
+    
+      <script>
+        
+        document.addEventListener("DOMContentLoaded", function (){
+          setInterval(function(){
+            $.ajax({
+              type:'GET',
+              url: "/messages/{{rooms}}/",
+              success : function(response){
+                $('#shows').empty();
+                for(let key in response.messages){
+                  let temp = 
+                  "<div class='card p-3 my-3'> <ul class='list-group'><li class='list-group-item'><p><i class='fas fa-user-circle'></i> " +response.messages[key].user+"</p><span><strong>"+response.messages[key].msg+"</strong><em>"+response.messages[key].date+"</em></span></li></ul></div>";
+                  $('#shows').append(temp);
+                }
+              },
+              error: function(response){
+                alert('Error! There is an error')
+              }
+            });
+          }, 100);
+        });
+      </script>
+
+      <div class="card p-3">
+        <form id="form">
+          {% csrf_token %}
+            <input type="hidden" name="rooms" id="rooms" class="form-control" value="{{rooms.id}}">
+            <input type="hidden" name="username" id="username" class="form-control" value="{{username}}">
+         <textarea name="msg" id="msg" rows="2" class="form-control my-2"></textarea>
+          <button type="submit" class=" btn btn-success btn-block">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  let form = document.getElementById('form');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+
+    $.ajax({
+    type: 'POST',
+    url: '/send',
+    data: {
+      username: $('#username').val(),
+      rooms: $('#rooms').val(),
+      msg: $('#msg').val(),
+      csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+    },
+    success: function (data) {
+      
+    }
+  });
+
+  document.getElementById('msg').value = ''
+   
+  });
+
+</script>
+
+
+{% endblock content %}

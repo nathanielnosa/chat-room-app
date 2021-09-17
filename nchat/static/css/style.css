@@ -1,0 +1,27 @@
+i{
+  color:seagreen
+}
+.card{
+  background-color: #d3d3d31e;
+}
+hr{
+  width: 25%;
+  align-self: center;
+  border: 1px solid seagreen;
+  margin-bottom:4rem;
+}
+label{
+  font-size: 20px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.btn-success{
+  background-color: seagreen !important;
+}
+.card li{
+  padding:5px;
+  background:#000000b1 !important;
+  color:white;
+}
+.card li span em{
+  float: right;
+}

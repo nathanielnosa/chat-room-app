@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-y-&g7a%)__rof7b*q%4^6iilsf!jq31^_2o82*vky3!fror@i6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','nchat.herokuapp.com']
+ALLOWED_HOSTS = ['*','nchats.herokuapp.com']
 
 
 # Application definition
@@ -88,7 +88,7 @@ DATABASES = {
         'USER': 'yayxxwljlvemxi',
         'PASSWORD': '9acdbd8282ea170ff34e1a3a28eb4da792b352a12958da29aaeb992d6f03d387',
         'HOST': 'ec2-3-89-214-80.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'PORT': '7780',
     }
 }
 

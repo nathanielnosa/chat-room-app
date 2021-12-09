@@ -81,26 +81,17 @@ WSGI_APPLICATION = 'nchat.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
 DATABASES = {
-
     'default': {
-
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
         'NAME': 'd894tqkikalkh4',
-
         'USER': 'yayxxwljlvemxi',
-
         'PASSWORD': '9acdbd8282ea170ff34e1a3a28eb4da792b352a12958da29aaeb992d6f03d387',
-
         'HOST': 'ec2-3-89-214-80.compute-1.amazonaws.com',
-
         'PORT': '5432',
-
     }
-
 }
+
 
 
 # Password validation

@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import django_heroku
 from pathlib import Path
+
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y-&g7a%)__rof7b*q%4^6iilsf!jq31^_2o82*vky3!fror@i6'
+SECRET_KEY = config('APP_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -85,10 +87,10 @@ WSGI_APPLICATION = 'nchat.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd894tqkikalkh4',
-        'USER': 'yayxxwljlvemxi',
-        'PASSWORD': '9acdbd8282ea170ff34e1a3a28eb4da792b352a12958da29aaeb992d6f03d387',
-        'HOST': 'ec2-3-89-214-80.compute-1.amazonaws.com',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
         'PORT': '5432',
     }
 }

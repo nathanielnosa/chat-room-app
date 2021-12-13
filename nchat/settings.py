@@ -74,24 +74,24 @@ WSGI_APPLICATION = 'nchat.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'd894tqkikalkh4',
-#         'USER': 'yayxxwljlvemxi',
-#         'PASSWORD': '9acdbd8282ea170ff34e1a3a28eb4da792b352a12958da29aaeb992d6f03d387',
-#         'HOST': 'ec2-3-89-214-80.compute-1.amazonaws.com',
-#         'PORT': '5432',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd894tqkikalkh4',
+        'USER': 'yayxxwljlvemxi',
+        'PASSWORD': '9acdbd8282ea170ff34e1a3a28eb4da792b352a12958da29aaeb992d6f03d387',
+        'HOST': 'ec2-3-89-214-80.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 
 
